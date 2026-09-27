@@ -37,7 +37,7 @@ export default function About() {
           <div className="pt-6">
             <h3 className="text-xl font-medium text-neutral-900 mb-4 italic">The "Offline" Version</h3>
             <p>
-              If we aren't talking shop, we’re probably talking food. I’m a food blogger and a dedicated
+              If we aren't talking shopping, we’re probably talking food. I’m a food blogger and a dedicated
               matcha enthusiast who loves the process of learning new recipes (the kitchen is basically
               my second sandbox). Most of my downtime is spent with my kid and our dog, usually
               outdoors or brainstorming my next personal project.
