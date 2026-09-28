@@ -37,6 +37,7 @@ Planned future features:
 - Interactive project showcases
 - Custom UI interactions
 - Creative drawing/scribble mode
+- Deployment on Vercel
 
 ## Featured Projects
 
@@ -46,9 +47,44 @@ Cloud-based speech therapy platform focused on improving communication exercises
 ### CI/CD Pipeline Project
 Automated deployment workflow integrating GitHub Actions and cloud infrastructure concepts.
 
-## Getting Started
+### Persona Palette
+A virtual style consultant leveraging computer vision and automated feature extraction to provide personalized fashion and beauty recommendations.
 
-Clone the repository:
+### Serverless Document Processor
+Provisioned an event-driven AWS architecture using Terraform, including S3, Lambda, DynamoDB, SNS, IAM, and CloudWatch.
+
+## 🚀 Getting Started
+
+Follow these steps to clone and run this repository locally on your machine.
+
+### Prerequisites
+
+Ensure you have **Node.js** (v18 or higher) and **npm** installed on your machine. You can check your installed versions by running:
 
 ```bash
-git clone https://github.com/selenasat/portfolio-site.git
+node -v
+npm -v
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/selenasat/selenasat.github.io.git
+
+2. Navigate into the project directory
+
+```bash
+cd selenasat.github.io
+
+3. Install project dependencies
+
+```bash
+npm install
+
+4. Start the local development server
+
+```bash
+npm run dev
+
+5. Open your browser and visit http://localhost:5173 (or the local URL displayed in your terminal) to view the site.
