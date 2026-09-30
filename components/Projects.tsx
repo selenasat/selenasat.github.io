@@ -1,192 +1,356 @@
+const projects = [
+  {
+    number: "01",
+    visual: "speech-therapy",
+    title: "Interactive Speech Therapy Web Application",
+    type: "Full-Stack · AI · UI/UX",
+    status: "Collaborative Project",
+    description:
+      "A collaborative web application designed to provide interactive speech therapy exercises for patients and tools for speech-language pathologists. I contributed to the frontend experience and full-stack functionality, including responsive interfaces, speech interaction, and AI-assisted feedback.",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Python",
+      "SQLite",
+      "Whisper",
+    ],
+    features: [
+      "Interactive Speech Exercises",
+      "AI-assisted Feedback",
+      "Patient & Speech-Language Pathologist Progress Tracking",
+      "Responsive Web Experience",
+    ],
+    linkType: "Case Study",
+    href: "#",
+  },
+
+  {
+    number: "02",
+    visual: "palette",
+    title: "Persona Palette",
+    type: "Full-Stack · Computer Vision · UI/UX",
+    status: "In Progress",
+    description:
+      "A cross-platform application that analyzes user photos to identify color season, face shape, and body shape, then turns those results into personalized fashion and beauty recommendations.",
+    technologies: [
+      "Python",
+      "Django",
+      "React",
+      "React Native",
+      "OpenCV",
+      "PostgreSQL",
+      "Figma",
+      "AWS S3",
+    ],
+    features: [
+      "Color Season Analysis",
+      "Face Shape Detection",
+      "Body Shape Classification",
+      "Personalized Fashion & Beauty Recommendations",
+    ],
+    linkType: "GitHub Repository",
+    href: "https://github.com/selenasat/PersonaPaletteApp",
+  },
+
+  {
+    number: "03",
+    visual: "terraform",
+    title: "Terraform Serverless Document Processor",
+    type: "Cloud · DevOps · Infrastructure as Code",
+    status: "In Progress",
+    description:
+      "An event-driven document processing system built with AWS services and Infrastructure as Code using Terraform.",
+    technologies: [
+      "AWS S3",
+      "Lambda",
+      "DynamoDB",
+      "SNS",
+      "IAM",
+      "CloudWatch",
+      "Terraform",
+    ],
+    features: [
+      "Event-Driven Document Processing",
+      "Infrastructure as Code with Terraform",
+      "Automated Infrastructure Validation",
+      "CI/CD Deployment Workflow",
+    ],
+    linkType: "GitHub Repository",
+    href: "https://github.com/selenasat/terraform-serverless-document-processor",
+  },
+
+  {
+    number: "04",
+    visual: "github-actions",
+    title: "GitHub Actions CI Workflow",
+    type: "DevOps · CI/CD · Automation",
+    status: "Completed",
+    description:
+      "A hands-on CI/CD project exploring automated code quality workflows with GitHub Actions.",
+    technologies: ["GitHub Actions", "Super Linter", "YAML", "Python", "CI/CD"],
+    features: [
+      "Workflow Configuration",
+      "Automated Linting",
+      "Github Actions runners",
+      "Troubleshooting failed workflows",
+    ],
+    linkType: "GitHub Repository",
+    href: "https://github.com/selenasat/ci-cd-pipeline-template",
+  },
+];
+
 export default function Projects() {
   return (
-    <section id="projects" className="px-8 py-32">
+    <section id="projects" className="px-6 md:px-10 py-32">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+        {/* Section heading */}
+        <div className="mb-20">
           <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-4">
             Selected Work
           </p>
 
-          <h2 className="text-4xl md:text-6xl font-semibold">
-            Featured Projects
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tight">
+            Things I've built.
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* PROJECT CARD */}
-          <div className="group cursor-pointer">
-            <div className="h-[400px] bg-neutral-200 rounded-[2rem] overflow-hidden">
-              <div className="w-full h-full group-hover:scale-105 transition duration-500 bg-gradient-to-br from-blue-200 to-purple-200" />
-            </div>
+        {/* Projects */}
+        <div className="space-y-24">
+          {projects.map((project) => (
+            <article key={project.number} className="group">
+              {/* Project visual */}
+              <div className="relative aspect-[16/8.5] bg-neutral-200 rounded-[2rem] overflow-hidden mb-8">
+                {/* SLP Project Visual */}
+                {project.visual === "speech-therapy" && (
+                  <div className="absolute inset-0 bg-[#e9e6df] p-6 md:p-10">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-6 md:p-8 flex flex-col justify-between">
+                      {/* Visual header */}
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
+                            Speech Session
+                          </p>
 
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold">SLP Exercise App</h3>
+                          <p className="mt-2 text-lg md:text-xl font-medium tracking-tight">
+                            Practice speaking with intention
+                          </p>
+                        </div>
 
-              <p className="mt-3 text-neutral-600 leading-relaxed">
-                AI-assisted speech therapy platform focused on helping
-                Parkinson’s patients improve communication through guided
-                exercises.
-              </p>
+                        <span className="text-xs text-neutral-400">
+                          SESSION 01
+                        </span>
+                      </div>
 
-              <div className="flex gap-3 mt-4 flex-wrap">
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  React
-                </span>
+                      {/* Speech feedback */}
+                      <div className="max-w-xl w-full">
+                        <div className="flex items-end justify-between mb-3">
+                          <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">
+                            Volume
+                          </p>
 
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  TypeScript
-                </span>
+                          <p className="text-2xl md:text-3xl font-medium">
+                            82 dB
+                          </p>
+                        </div>
 
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  UI/UX
-                </span>
+                        <div className="h-2 rounded-full bg-neutral-200 overflow-hidden">
+                          <div className="h-full w-[78%] bg-neutral-900 rounded-full" />
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-3 mt-6">
+                          <div className="rounded-xl border border-neutral-200 p-4">
+                            <p className="text-xs text-neutral-400">Volume</p>
+                            <p className="mt-2 text-lg font-medium">82%</p>
+                          </div>
+
+                          <div className="rounded-xl border border-neutral-200 p-4">
+                            <p className="text-xs text-neutral-400">Clarity</p>
+                            <p className="mt-2 text-lg font-medium">76%</p>
+                          </div>
+
+                          <div className="rounded-xl border border-neutral-200 p-4">
+                            <p className="text-xs text-neutral-400">Intent</p>
+                            <p className="mt-2 text-lg font-medium">88%</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Visual footer */}
+                      <div className="flex items-center justify-between text-xs text-neutral-400">
+                        <span>Interactive exercise</span>
+                        <span>AI-assisted feedback</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Persona Palette Visual */}
+                {project.visual === "palette" && (
+                  <div className="absolute inset-0 bg-[#e7e2dc] p-4 md:p-8">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-5 md:p-7 flex flex-col">
+                      {/* Header */}
+                      <div className="flex items-start justify-between shrink-0">
+                        <div>
+                          <p className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-neutral-400">
+                            Persona Palette
+                          </p>
+
+                          <p className="mt-1 md:mt-2 text-base md:text-xl font-medium tracking-tight">
+                            Discover your visual identity
+                          </p>
+                        </div>
+
+                        <span className="text-[10px] md:text-xs text-neutral-400">
+                          ANALYSIS 01
+                        </span>
+                      </div>
+
+                      {/* Main Analysis */}
+                      <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 flex-1 py-5">
+                        {/* Color palette */}
+                        <div className="flex -space-x-3 shrink-0">
+                          <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-[#172554] border-4 border-[#f8f6f2]" />
+                          <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-[#312e81] border-4 border-[#f8f6f2]" />
+                          <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-[#701a75] border-4 border-[#f8f6f2]" />
+                          <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-[#be123c] border-4 border-[#f8f6f2]" />
+                          <div className="w-11 h-11 md:w-14 md:h-14 rounded-full bg-[#e5e7eb] border-4 border-[#f8f6f2]" />
+                        </div>
+
+                        {/* Analysis result */}
+                        <div className="text-center md:text-left">
+                          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-neutral-400">
+                            Example Analysis
+                          </p>
+
+                          <p className="mt-1 text-2xl md:text-4xl font-medium tracking-tight">
+                            Cool Winter
+                          </p>
+
+                          <p className="mt-1 text-xs md:text-sm text-neutral-500">
+                            High contrast · Cool undertones
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Analysis Cards */}
+                      <div className="grid grid-cols-3 gap-2 md:gap-3 shrink-0">
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                          <p className="text-[10px] md:text-xs text-neutral-400">
+                            Face Shape
+                          </p>
+
+                          <p className="mt-1 md:mt-2 text-xs md:text-sm font-medium">
+                            Oval
+                          </p>
+                        </div>
+
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                          <p className="text-[10px] md:text-xs text-neutral-400">
+                            Body Shape
+                          </p>
+
+                          <p className="mt-1 md:mt-2 text-xs md:text-sm font-medium">
+                            Analysis
+                          </p>
+                        </div>
+
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                          <p className="text-[10px] md:text-xs text-neutral-400">
+                            Recommendations
+                          </p>
+
+                          <p className="mt-1 md:mt-2 text-xs md:text-sm font-medium">
+                            Personalized
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Placeholder for projects without a custom visual */}
+                {!project.visual && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="text-xs uppercase tracking-[0.3em] text-neutral-400">
+                      Project {project.number}
+                    </p>
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
 
-          {/* SECOND PROJECT */}
-          <div className="group cursor-pointer">
-            <div className="h-[400px] bg-neutral-200 rounded-[2rem] overflow-hidden">
-              <div className="w-full h-full group-hover:scale-105 transition duration-500 bg-gradient-to-br from-neutral-300 to-neutral-100" />
-            </div>
+              {/* Project information */}
+              <div className="grid md:grid-cols-[80px_1fr_auto] gap-6">
+                <p className="text-sm text-neutral-400">{project.number}</p>
 
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold">CI/CD Pipeline Project</h3>
+                <div>
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <p className="uppercase tracking-[0.2em] text-xs text-neutral-400">
+                      {project.type}
+                    </p>
 
-              <p className="mt-3 text-neutral-600 leading-relaxed">
-                Automated deployment workflow integrating GitHub Actions and
-                cloud infrastructure for continuous delivery.
-              </p>
+                    <span className="text-xs text-neutral-400">·</span>
 
-              <div className="flex gap-3 mt-4 flex-wrap">
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  GitHub Actions
-                </span>
+                    <p className="text-xs text-neutral-500">{project.status}</p>
+                  </div>
 
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  AWS
-                </span>
+                  <h3 className="text-3xl md:text-4xl font-medium tracking-tight">
+                    {project.title}
+                  </h3>
 
-                <span className="text-sm bg-white px-3 py-1 rounded-full border">
-                  DevOps
-                </span>
-              </div>
-            </div>
-          </div>
+                  <p className="mt-4 max-w-2xl text-neutral-600 leading-relaxed">
+                    {project.description}
+                  </p>
 
-          {/* THIRD PROJECT */}
-          <div className="group cursor-pointer">
-            <div className="h-[400px] bg-neutral-200 rounded-[2rem] overflow-hidden">
-              <div className="w-full h-full group-hover:scale-105 transition duration-500 bg-gradient-to-br from-blue-200 to-purple-200" />
-            </div>
+                  {/* Project technologies */}
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {project.technologies.map((technology) => (
+                      <span
+                        key={technology}
+                        className="rounded-full border border-neutral-300 px-3 py-1 text-xs text-neutral-500"
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
 
-            <div className="mt-6">
-              <h3 className="text-2xl font-semibold text-neutral-900">
-                Persona Palette
-              </h3>
+                  {/* Project features */}
+                  {project.features && (
+                    <div className="mt-8">
+                      <p className="text-xs uppercase tracking-[0.2em] text-neutral-400 mb-3">
+                        Highlights
+                      </p>
 
-              <p className="mt-3 text-neutral-600 leading-relaxed">
-                A virtual style consultant leveraging **computer vision** to
-                provide personalized fashion and beauty recommendations. By
-                analyzing skin tones and physical geometry through **OpenCV**,
-                the app determines a user's unique color season and silhouette
-                to curate a data-driven, tailored wardrobe experience.
-              </p>
-
-              {/* Technical Highlights */}
-              <ul className="mt-4 space-y-1 text-sm text-neutral-500">
-                <li>Automated color season & face shape classification</li>
-                <li>Cross-platform consistency (Web & Mobile)</li>
-                <li>Secure image processing pipeline via AWS S3</li>
-              </ul>
-
-              <div className="flex gap-3 mt-6 flex-wrap">
-                <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                  Python / Django
-                </span>
-                <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                  OpenCV
-                </span>
-                <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                  React Native
-                </span>
-                <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                  PostgreSQL
-                </span>
-                <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                  Figma
-                </span>
-              </div>
-            </div>
-
-            {/* FOURTH PROJECT */}
-            <div className="group cursor-pointer">
-              <div className="h-[400px] bg-neutral-200 rounded-[2rem] overflow-hidden">
-                <div className="w-full h-full group-hover:scale-105 transition duration-500 bg-gradient-to-br from-blue-200 to-purple-200" />
-              </div>
-
-              <div className="mt-6">
-                <h3 className="text-2xl font-semibold text-neutral-900">
-                  Serverless Document Processor
-                </h3>
-
-                <p className="mt-3 text-neutral-600 leading-relaxed">
-                  A serverless document processing system that leverages AWS
-                  services to automate the extraction and analysis of data from
-                  various document formats. The system utilizes AWS Lambda for
-                  processing, AWS Textract for text extraction, and AWS DynamoDB
-                  for storing structured data, enabling efficient and scalable
-                  document management.
-                </p>
-
-                {/* Technical Highlights */}
-                <ul className="mt-4 space-y-1 text-sm text-neutral-500">
-                  <li>
-                    Automated document processing pipeline using AWS Lambda and
-                    Textract
-                  </li>
-                  <li>
-                    Scalable data storage and retrieval with AWS DynamoDB
-                  </li>
-                  <li> Real-time monitoring and logging with AWS CloudWatch</li>
-                  <li>
-                    Secure access control and permissions management with AWS
-                    IAM
-                  </li>
-                  <li>
-                    Infrastructure as Code (IaC) implementation using Terraform
-                  </li>
-                </ul>
-
-                <div className="flex gap-3 mt-6 flex-wrap">
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS S3
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS Lambda
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS Textract
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS CloudWatch
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS DynamoDB
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS SNS
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    AWS IAM
-                  </span>
-                  <span className="text-sm bg-white px-3 py-1 rounded-full border border-neutral-200 text-neutral-700">
-                    Terraform
-                  </span>
+                      <ul className="list-none space-y-2 text-sm text-neutral-500 p-0">
+                        {project.features.map((feature) => (
+                          <li key={feature} className="flex items-start gap-2">
+                            <span className="text-neutral-300">→</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
+
+                {/* Project link */}
+                <a
+                  href={project.href}
+                  target={
+                    project.href.startsWith("http") ? "_blank" : undefined
+                  }
+                  rel={
+                    project.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="self-start text-sm font-medium transition-transform hover:translate-x-1"
+                >
+                  {project.linkType} ↗
+                </a>
               </div>
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
