@@ -1,6 +1,34 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
 export default function About() {
   const staples = [
-    { label: "Learning", value: "Next.js 14 & Framer Motion" },
+    { label: "Learning", value: "Next.js & Framer Motion" },
     { label: "Cooking", value: "Mentaiko Pasta" },
     { label: "Drinking", value: "Iced Matcha Latte with a splash of Chai" },
     { label: "Building", value: "Persona Palette App" },
@@ -9,13 +37,25 @@ export default function About() {
   return (
     <section id="about" className="px-8 py-32 border-t border-neutral-200">
       <div className="max-w-4xl mx-auto">
-        <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6"
+        >
           About Me
-        </p>
+        </motion.p>
 
-        <h2 className="text-4xl md:text-5xl font-semibold leading-tight text-neutral-900">
+        <motion.h2
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-4xl md:text-5xl font-semibold leading-tight text-neutral-900"
+        >
           Beyond the Code
-        </h2>
+        </motion.h2>
 
         <div className="mt-10 text-lg text-neutral-600 leading-relaxed space-y-6">
           <p>
@@ -31,10 +71,10 @@ export default function About() {
           <p>
             For me, building for the web is about more than just writing clean
             code—it's about creating an experience that feels effortless for the
-            user. My toolkit is diverse: I’m just as comfortable architecting
-            cloud-based AWS solutions and querying SQL databases as I am
-            prototyping a fluid interface in Figma or experimenting with Machine
-            Learning to solve modern problems.
+            user. My toolkit is diverse: I'm especially interested in
+            cloud-based AWS solutions and SQL databases, while also enjoying the
+            creative side of prototyping interfaces in Figma and exploring AI
+            and machine learning
           </p>
 
           <div className="pt-6">
@@ -68,9 +108,188 @@ export default function About() {
           </div>
         </div>
 
-        <p className="mt-12 text-lg font-medium text-neutral-900">
-          Let’s build something meaningful together!
-        </p>
+        {/* What I'm Interested In */}
+        <div className="mt-24 pt-16 border-t border-neutral-200">
+          <p className="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-10">
+            What I'm Interested In
+          </p>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className="space-y-0"
+          >
+            <motion.div
+              variants={itemVariants}
+              className="py-8 border-b border-neutral-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                Software Engineering
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Building reliable software and understanding how the pieces work
+                together from development to deployment.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="py-8 border-b border-neutral-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                Full-Stack Development
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Creating thoughtful applications where frontend experiences,
+                backend logic, databases, and APIs work together.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="py-8 border-b border-neutral-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                Cloud & Infrastructure
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Learning how applications are deployed, monitored, and
+                maintained through cloud infrastructure and automation.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="py-8 border-b border-neutral-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                AI & Computer Vision
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Exploring how intelligent systems can make applications more
+                useful, personalized, and interactive.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="py-8 border-b border-neutral-200"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                UI / UX
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Designing interfaces that feel intuitive, purposeful, and
+                enjoyable to use.
+              </p>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="py-8"
+            >
+              <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
+                DevOps & Automation
+              </h3>
+              <p className="mt-3 max-w-2xl text-base md:text-lg text-neutral-500 leading-relaxed">
+                Improving development workflows through testing, automation,
+                CI/CD, and reliable engineering practices.
+              </p>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Technical Toolkit */}
+        <div className="mt-24 pt-16 border-t border-neutral-200">
+          <p className="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-10">
+            Technical Toolkit
+          </p>
+
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Languages
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                C · C++ · Java · JavaScript · TypeScript · Python · PHP · SQL
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Frontend & Full-Stack
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                React · Next.js · React Native · Tailwind CSS · Node.js · HTML ·
+                CSS
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Databases
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                SQLite · PostgreSQL · MySQL · MongoDB · DynamoDB
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Cloud & Infrastructure
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                AWS · Terraform · Docker
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                AI & Machine Learning
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                Whisper · OpenAI · OpenCV
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Testing & CI/CD
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                Mocha · Chai · GitHub Actions ·Super Linter
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                UI & Interaction Design
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                Figma · Framer Motion
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
+                Developer Tools
+              </h3>
+
+              <p className="mt-3 text-base md:text-lg text-neutral-500 leading-relaxed">
+                Git · GitHub · VS Code · Visual Studio
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ const projects = [
       "Responsive Web Experience",
     ],
     linkType: "Case Study",
-    href: "#",
+    href: "",
   },
 
   {
@@ -61,9 +61,12 @@ const projects = [
     status: "In Progress",
     description:
       "An event-driven document processing system built with AWS services and Infrastructure as Code using Terraform.",
+    // Note: Textract is temporarily disabled due to API limitations. Once implemented, it will be re-enabled for document text extraction.
+    // "An event-driven document processing system that uses AWS services to process uploaded documents, extract relevant information, store structured results, and publish processing notifications, with infrastructure managed through Terraform."
     technologies: [
       "AWS S3",
       "Lambda",
+      // "Textract", - once finished implementing Textract, add it back to the list
       "DynamoDB",
       "SNS",
       "IAM",
@@ -72,6 +75,7 @@ const projects = [
     ],
     features: [
       "Event-Driven Document Processing",
+      // "Document Text Extraction with AWS Textract",
       "Infrastructure as Code with Terraform",
       "Automated Infrastructure Validation",
       "CI/CD Deployment Workflow",
@@ -92,7 +96,7 @@ const projects = [
     features: [
       "Workflow Configuration",
       "Automated Linting",
-      "Github Actions runners",
+      "GitHub Actions runners",
       "Troubleshooting failed workflows",
     ],
     linkType: "GitHub Repository",
@@ -264,6 +268,197 @@ export default function Projects() {
                             Personalized
                           </p>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* Terraform Serverless Visual */}
+                {project.visual === "terraform" && (
+                  <div className="absolute inset-0 bg-[#e7e2dc] p-6 md:p-10">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-6 md:p-8 flex flex-col justify-between">
+                      {/* Header */}
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
+                            Serverless Pipeline
+                          </p>
+
+                          <p className="mt-2 text-lg md:text-xl font-medium tracking-tight">
+                            Event-driven document processing
+                          </p>
+                        </div>
+
+                        <span className="text-xs text-neutral-400">
+                          AWS · TERRAFORM
+                        </span>
+                      </div>
+
+                      {/* Architecture */}
+                      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
+                        {/* S3 */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              S3
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Upload
+                          </span>
+                        </div>
+
+                        {/* Arrow */}
+                        <span className="text-neutral-300 text-lg md:text-xl">
+                          →
+                        </span>
+
+                        {/* Lambda */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              Lambda
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Process
+                          </span>
+                        </div>
+
+                        {/* Arrow */}
+                        <span className="text-neutral-300 text-lg md:text-xl">
+                          →
+                        </span>
+
+                        {/* DynamoDB */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              DynamoDB
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Store
+                          </span>
+                        </div>
+
+                        {/* Arrow */}
+                        <span className="text-neutral-300 text-lg md:text-xl">
+                          →
+                        </span>
+
+                        {/* SNS */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              SNS
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Notify
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex items-center justify-between text-xs text-neutral-400">
+                        <span>Infrastructure as Code</span>
+                        <span>Terraform managed</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* GitHub Actions Visual */}
+                {project.visual === "github-actions" && (
+                  <div className="absolute inset-0 bg-[#e7e2dc] p-6 md:p-10">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-6 md:p-8 flex flex-col justify-between">
+                      {/* Header */}
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-xs uppercase tracking-[0.25em] text-neutral-400">
+                            CI Workflow
+                          </p>
+
+                          <p className="mt-2 text-lg md:text-xl font-medium tracking-tight">
+                            Automated code quality checks
+                          </p>
+                        </div>
+
+                        <span className="text-xs text-neutral-400">
+                          GITHUB ACTIONS
+                        </span>
+                      </div>
+
+                      {/* Workflow */}
+                      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-5">
+                        {/* Push */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              Push
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Code change
+                          </span>
+                        </div>
+
+                        <span className="text-neutral-300 text-lg">→</span>
+
+                        {/* Workflow */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              Action
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Workflow
+                          </span>
+                        </div>
+
+                        <span className="text-neutral-300 text-lg">→</span>
+
+                        {/* Lint */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              Lint
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Super Linter
+                          </span>
+                        </div>
+
+                        <span className="text-neutral-300 text-lg">→</span>
+
+                        {/* Result */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                            <span className="text-xs md:text-sm font-medium">
+                              Pass
+                            </span>
+                          </div>
+
+                          <span className="mt-2 text-xs text-neutral-400">
+                            Validation
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Footer */}
+                      <div className="flex items-center justify-between text-xs text-neutral-400">
+                        <span>Automated quality checks</span>
+                        <span>CI/CD</span>
                       </div>
                     </div>
                   </div>
