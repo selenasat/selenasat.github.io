@@ -3,7 +3,6 @@ export default function Hero() {
     <section className="min-h-screen px-6 md:px-10 flex items-center">
       <div className="max-w-7xl mx-auto w-full pt-24">
         <div className="max-w-5xl">
-
           {/* Personal Introduction */}
           <p className="mb-5 text-lg text-neutral-500">
             Hello, my name is Selena Sat
@@ -11,16 +10,16 @@ export default function Hero() {
 
           {/* Professional Title */}
           <p className="mb-8 text-sm uppercase tracking-[0.25em] text-neutral-500">
-            Full-Stack Developer · UI/UX Designer
+            Software Engineer · Full-Stack · UI/UX
           </p>
 
           {/* Headline */}
-          <h1 className="text-6xl md:text-8xl font-semibold leading-none tracking-tight">
+          <h1 className="text-6xl md:text-8xl font-semibold leading-[0.95] tracking-tight">
             Software builder by trade, designer by choice.
           </h1>
 
           {/*Location*/}
-          <p className="mb-8 text-sm text-neutral-500">
+          <p className="mt-10 max-w-2xl text-lg text-neutral-600 leading-relaxed">
             ✦ Based in Seattle, WA
           </p>
 
@@ -35,21 +34,40 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="rounded-full bg-neutral-900 px-6 py-3 text-sm text-white transition hover:-translate-y-1"
+              className="rounded-full bg-neutral-900 px-6 py-3 text-sm text-white transition-all duration-200 hover:-translate-y-1"
             >
               View my work
             </a>
 
             <a
-              href="https://github.com/selenasat"
+              href="/selena_sat.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full border border-neutral-300 px-6 py-3 text-sm transition hover:bg-white hover:-translate-y-1"
+              className="rounded-full border border-neutral-300 px-6 py-3 text-sm transition-all duration-200 hover:bg-white hover:-translate-y-1"
             >
-              GitHub ↗
+              Resume ↗
             </a>
           </div>
 
+          <div className="mt-5 flex gap-6">
+            <a
+              href="https://github.com/selenasat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-neutral-500 transition-colors hover:text-neutral-900"
+            >
+              GitHub ↗
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/selenasat/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-neutral-500 transition-colors hover:text-neutral-900"
+            >
+              LinkedIn ↗
+            </a>
+          </div>
         </div>
       </div>
     </section>
