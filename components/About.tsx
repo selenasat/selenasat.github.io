@@ -74,7 +74,7 @@ export default function About() {
             user. My toolkit is diverse: I'm especially interested in
             cloud-based AWS solutions and SQL databases, while also enjoying the
             creative side of prototyping interfaces in Figma and exploring AI
-            and machine learning
+            and machine learning.
           </p>
 
           <div className="pt-6">
@@ -96,20 +96,28 @@ export default function About() {
           <p className="text-xs uppercase tracking-widest text-neutral-400 mb-8">
             Current Staples
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
             {staples.map((staple) => (
-              <div key={staple.label}>
+              <motion.div key={staple.label} variants={itemVariants}>
                 <p className="text-sm font-medium text-neutral-900">
                   {staple.label}
                 </p>
+
                 <p className="text-sm text-neutral-500 mt-1">{staple.value}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* What I'm Interested In */}
-        <div className="mt-24 pt-16 border-t border-neutral-200">
+        <div className="mt-28 pt-16 border-t border-neutral-200">
           <p className="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-10">
             What I'm Interested In
           </p>
@@ -123,6 +131,8 @@ export default function About() {
           >
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="py-8 border-b border-neutral-200"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -136,6 +146,8 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="py-8 border-b border-neutral-200"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -149,6 +161,8 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="py-8 border-b border-neutral-200"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -162,6 +176,8 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }} 
               className="py-8 border-b border-neutral-200"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -175,6 +191,8 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="py-8 border-b border-neutral-200"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -188,6 +206,8 @@ export default function About() {
 
             <motion.div
               variants={itemVariants}
+              whileHover={{ x: 8 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
               className="py-8"
             >
               <h3 className="text-2xl md:text-3xl font-medium text-neutral-900">
@@ -202,12 +222,18 @@ export default function About() {
         </div>
 
         {/* Technical Toolkit */}
-        <div className="mt-24 pt-16 border-t border-neutral-200">
+        <div className="mt-28 pt-16 border-t border-neutral-200">
           <p className="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-10">
             Technical Toolkit
           </p>
 
-          <div className="space-y-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="space-y-10"
+          >
             <div>
               <h3 className="text-sm font-medium uppercase tracking-[0.2em] text-neutral-900">
                 Languages
@@ -288,7 +314,7 @@ export default function About() {
                 Git · GitHub · VS Code · Visual Studio
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

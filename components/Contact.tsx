@@ -4,8 +4,19 @@ export default function Contact() {
       <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md mx-auto">
           <h1 className="text-3xl font-bold text-center text-gray-900 mb-8">
-            Contact Me
+            Let's talk!
           </h1>
+          <p className="text-center text-gray-600 mb-8">
+            Have a project in mind, and interesting opportunity, or just want to
+            say hi? I'm always open to new ideas and collaborations. Fill out
+            the form below, and I'll get back to you as soon as possible!
+          </p>
+          <p className="text-center text-gray-600 mb-8">
+            I'm open to conversations about software engineering opportunities,
+            creative projects, collaborations, and ideas worth building. If you
+            have a project in mind, or just want to say hi, feel free to reach
+            out!
+          </p>
           <form className="space-y-6">
             <div>
               <label
@@ -17,6 +28,7 @@ export default function Contact() {
               <input
                 type="text"
                 id="name"
+                placeholder="Your Name"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -30,6 +42,7 @@ export default function Contact() {
               <input
                 type="email"
                 id="email"
+                placeholder="your.email@example.com"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
@@ -42,6 +55,7 @@ export default function Contact() {
               </label>
               <textarea
                 id="message"
+                placeholder="Tell me about a project, collaboration, or just say hi <3!"
                 rows={4}
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
               />
@@ -56,10 +70,16 @@ export default function Contact() {
             </div>
           </form>
         </div>
-         <p className="mt-12 text-lg font-medium text-neutral-900">
+        <p className="mt-12 text-lg font-medium text-neutral-900">
           Let’s build something meaningful together!
         </p>
       </div>
+      <footer className="mt-12 text-sm text-center text-neutral-500">
+        &copy; {new Date().getFullYear()} Selena Sat. All rights reserved.
+        <p className="mt-2">
+          Built with <a href="https://nextjs.org/" className="underline">Next.js</a> and <a href="https://tailwindcss.com/" className="underline">Tailwind CSS</a>.
+        </p>
+      </footer> 
     </section>
   );
 }
