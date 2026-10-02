@@ -7,8 +7,9 @@ export default function Hero() {
     <section className="min-h-screen px-6 md:px-10 py-16 md:py-0 flex items-center">
       <div className="max-w-7xl mx-auto w-full pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-16 items-center">
-          {/* Hero Content */}
-          <div
+          
+          {/* Left Column - Hero Content */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
@@ -79,8 +80,9 @@ export default function Hero() {
                 LinkedIn ↗
               </a>
             </div>
-          </div>
+          </motion.div>
 
+          {/* Right Column - Portrait */}
           <motion.div
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
