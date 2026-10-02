@@ -26,7 +26,7 @@ const projects = [
       "Responsive Web Experience",
     ],
     linkType: "Case Study",
-    href: "#",
+    href: "/speech-therapy",
   },
 
   {
@@ -496,7 +496,7 @@ export default function Projects() {
               </div>
 
               {/* Project information */}
-              <div className="grid md:grid-cols-[80px_1fr_auto] gap-6 md:gap-8">
+              <div className="grid md:grid-cols-[80px_1fr] gap-6 md:gap-8">
                 <p className="text-sm text-neutral-400">{project.number}</p>
 
                 <div>
@@ -549,27 +549,28 @@ export default function Projects() {
                   )}
 
                   {/* GitHub link */}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-6 inline-flex text-sm font-medium text-neutral-900 hover:text-neutral-500 transition-colors"
-                    >
-                      View GitHub Repository ↗
-                    </a>
-                  )}
-                </div>
+                  <div className="mt-6 flex flex-wrap items-center gap-6">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex text-sm font-medium text-neutral-900 hover:text-neutral-500 transition-colors"
+                      >
+                        View GitHub Repository ↗
+                      </a>
+                    )}
 
-                {/* Project link */}
-                {project.href && project.linkType === "Case Study" && (
-                  <a
-                    href={project.href}
-                    className="self-start text-sm font-medium transition-transform hover:translate-x-1"
-                  >
-                    {project.linkType} ↗
-                  </a>
-                )}
+                    {project.href && project.linkType === "Case Study" && (
+                      <a
+                        href={project.href}
+                        className="inline-flex text-sm font-medium text-neutral-900 hover:text-neutral-500 transition-colors"
+                      >
+                        {project.linkType} ↗
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </motion.article>
           ))}

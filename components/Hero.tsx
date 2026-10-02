@@ -31,12 +31,12 @@ export default function Hero() {
             </h1>
 
             {/*Location*/}
-            <p className="mt-6 text-sm text-neutral-500">
+            <p className="mt-8 text-sm text-neutral-500">
               ✦ Based in Seattle, WA
             </p>
 
             {/* Description */}
-            <p className="mt-10 max-w-2xl text-lg text-neutral-600 leading-relaxed">
+            <p className="mt-6 max-w-2xl text-lg text-neutral-600 leading-relaxed">
               I build modern web applications and thoughtful digital
               experiences. Combining full-stack development with UI/UX design, I
               create intuitive, end-to-end solutions that solve real problems.
