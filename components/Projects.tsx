@@ -1,3 +1,7 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
 const projects = [
   {
     number: "01",
@@ -22,7 +26,7 @@ const projects = [
       "Responsive Web Experience",
     ],
     linkType: "Case Study",
-    href: "",
+    href: "#",
   },
 
   {
@@ -49,8 +53,7 @@ const projects = [
       "Body Shape Classification",
       "Personalized Fashion & Beauty Recommendations",
     ],
-    linkType: "GitHub Repository",
-    href: "https://github.com/selenasat/PersonaPaletteApp",
+    github: "https://github.com/selenasat/PersonaPaletteApp",
   },
 
   {
@@ -61,12 +64,9 @@ const projects = [
     status: "In Progress",
     description:
       "An event-driven document processing system built with AWS services and Infrastructure as Code using Terraform.",
-    // Note: Textract is temporarily disabled due to API limitations. Once implemented, it will be re-enabled for document text extraction.
-    // "An event-driven document processing system that uses AWS services to process uploaded documents, extract relevant information, store structured results, and publish processing notifications, with infrastructure managed through Terraform."
     technologies: [
       "AWS S3",
       "Lambda",
-      // "Textract", - once finished implementing Textract, add it back to the list
       "DynamoDB",
       "SNS",
       "IAM",
@@ -75,13 +75,12 @@ const projects = [
     ],
     features: [
       "Event-Driven Document Processing",
-      // "Document Text Extraction with AWS Textract",
       "Infrastructure as Code with Terraform",
       "Automated Infrastructure Validation",
       "CI/CD Deployment Workflow",
     ],
-    linkType: "GitHub Repository",
-    href: "https://github.com/selenasat/terraform-serverless-document-processor",
+    github:
+      "https://github.com/selenasat/terraform-serverless-document-processor",
   },
 
   {
@@ -99,12 +98,12 @@ const projects = [
       "GitHub Actions runners",
       "Troubleshooting failed workflows",
     ],
-    linkType: "GitHub Repository",
-    href: "https://github.com/selenasat/ci-cd-pipeline-template",
+    github: "https://github.com/selenasat/ci-cd-pipeline-template",
   },
 ];
 
 export default function Projects() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <section id="projects" className="px-6 md:px-10 py-32">
       <div className="max-w-7xl mx-auto">
@@ -122,13 +121,22 @@ export default function Projects() {
         {/* Projects */}
         <div className="space-y-24">
           {projects.map((project) => (
-            <article key={project.number} className="group">
+            <motion.article
+              key={project.number}
+              className="group"
+              initial={shouldReduceMotion ? false : { opacity: 0, y: 40 }}
+              whileInView={
+                shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
+              }
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+            >
               {/* Project visual */}
-              <div className="relative aspect-[16/8.5] bg-neutral-200 rounded-[2rem] overflow-hidden mb-8">
+              <div className="relative aspect-[5/4] sm:aspect-[4/3] md:aspect-[16/8.5] bg-neutral-200 rounded-[2rem] overflow-hidden mb-8">
                 {/* SLP Project Visual */}
                 {project.visual === "speech-therapy" && (
-                  <div className="absolute inset-0 bg-[#e9e6df] p-6 md:p-10">
-                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-6 md:p-8 flex flex-col justify-between">
+                  <div className="absolute inset-0 bg-[#e9e6df] p-3 sm:p-5 md:p-10">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-4 sm:p-6 md:p-8 flex flex-col justify-between">
                       {/* Visual header */}
                       <div className="flex items-start justify-between">
                         <div>
@@ -163,19 +171,32 @@ export default function Projects() {
                         </div>
 
                         <div className="grid grid-cols-3 gap-3 mt-6">
-                          <div className="rounded-xl border border-neutral-200 p-4">
-                            <p className="text-xs text-neutral-400">Volume</p>
-                            <p className="mt-2 text-lg font-medium">82%</p>
+                          <div className="rounded-xl border border-neutral-200 p-3 sm:p-4">
+                            <p className="text-[10px] sm:text-xs text-neutral-400">
+                              Volume
+                            </p>
+
+                            <p className="mt-1 sm:mt-2 text-base sm:text-lg font-medium">
+                              82%
+                            </p>
                           </div>
 
-                          <div className="rounded-xl border border-neutral-200 p-4">
-                            <p className="text-xs text-neutral-400">Clarity</p>
-                            <p className="mt-2 text-lg font-medium">76%</p>
+                          <div className="rounded-xl border border-neutral-200 p-3 sm:p-4">
+                            <p className="text-[10px] sm:text-xs text-neutral-400">
+                              Clarity
+                            </p>
+                            <p className="mt-1 sm:mt-2 text-base sm:text-lg font-medium">
+                              76%
+                            </p>
                           </div>
 
-                          <div className="rounded-xl border border-neutral-200 p-4">
-                            <p className="text-xs text-neutral-400">Intent</p>
-                            <p className="mt-2 text-lg font-medium">88%</p>
+                          <div className="rounded-xl border border-neutral-200 p-3 sm:p-4">
+                            <p className="text-[10px] sm:text-xs text-neutral-400">
+                              Intent
+                            </p>
+                            <p className="mt-1 sm:mt-2 text-base sm:text-lg font-medium">
+                              88%
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -191,8 +212,8 @@ export default function Projects() {
 
                 {/* Persona Palette Visual */}
                 {project.visual === "palette" && (
-                  <div className="absolute inset-0 bg-[#e7e2dc] p-4 md:p-8">
-                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-5 md:p-7 flex flex-col">
+                  <div className="absolute inset-0 bg-[#e7e2dc] p-3 sm:p-5 md:p-8">
+                    <div className="h-full rounded-[1.5rem] bg-[#f8f6f2] border border-neutral-200 p-4 sm:p-5 md:p-7 flex flex-col">
                       {/* Header */}
                       <div className="flex items-start justify-between shrink-0">
                         <div>
@@ -239,7 +260,7 @@ export default function Projects() {
 
                       {/* Analysis Cards */}
                       <div className="grid grid-cols-3 gap-2 md:gap-3 shrink-0">
-                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-2 sm:p-3 md:p-4">
                           <p className="text-[10px] md:text-xs text-neutral-400">
                             Face Shape
                           </p>
@@ -249,7 +270,7 @@ export default function Projects() {
                           </p>
                         </div>
 
-                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-2 sm:p-3 md:p-4">
                           <p className="text-[10px] md:text-xs text-neutral-400">
                             Body Shape
                           </p>
@@ -259,7 +280,7 @@ export default function Projects() {
                           </p>
                         </div>
 
-                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-3 md:p-4">
+                        <div className="rounded-lg md:rounded-xl border border-neutral-200 p-2 sm:p-3 md:p-4">
                           <p className="text-[10px] md:text-xs text-neutral-400">
                             Recommendations
                           </p>
@@ -295,10 +316,10 @@ export default function Projects() {
                       </div>
 
                       {/* Architecture */}
-                      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-6">
+                      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-6 px-2 sm:px-4">
                         {/* S3 */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
                             <span className="text-xs md:text-sm font-medium">
                               S3
                             </span>
@@ -316,7 +337,7 @@ export default function Projects() {
 
                         {/* Lambda */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
                             <span className="text-xs md:text-sm font-medium">
                               Lambda
                             </span>
@@ -334,7 +355,7 @@ export default function Projects() {
 
                         {/* DynamoDB */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
                             <span className="text-xs md:text-sm font-medium">
                               DynamoDB
                             </span>
@@ -352,7 +373,7 @@ export default function Projects() {
 
                         {/* SNS */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
                             <span className="text-xs md:text-sm font-medium">
                               SNS
                             </span>
@@ -395,10 +416,10 @@ export default function Projects() {
                       </div>
 
                       {/* Workflow */}
-                      <div className="flex flex-wrap items-center justify-center gap-3 md:gap-5">
+                      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-5">
                         {/* Push */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Push
                             </span>
@@ -413,7 +434,7 @@ export default function Projects() {
 
                         {/* Workflow */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Action
                             </span>
@@ -428,7 +449,7 @@ export default function Projects() {
 
                         {/* Lint */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Lint
                             </span>
@@ -443,7 +464,7 @@ export default function Projects() {
 
                         {/* Result */}
                         <div className="flex flex-col items-center">
-                          <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Pass
                             </span>
@@ -463,7 +484,7 @@ export default function Projects() {
                     </div>
                   </div>
                 )}
-
+                
                 {/* Placeholder for projects without a custom visual */}
                 {!project.visual && (
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -475,7 +496,7 @@ export default function Projects() {
               </div>
 
               {/* Project information */}
-              <div className="grid md:grid-cols-[80px_1fr_auto] gap-6">
+              <div className="grid md:grid-cols-[80px_1fr_auto] gap-6 md:gap-8">
                 <p className="text-sm text-neutral-400">{project.number}</p>
 
                 <div>
@@ -489,7 +510,7 @@ export default function Projects() {
                     <p className="text-xs text-neutral-500">{project.status}</p>
                   </div>
 
-                  <h3 className="text-3xl md:text-4xl font-medium tracking-tight">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight">
                     {project.title}
                   </h3>
 
@@ -526,25 +547,30 @@ export default function Projects() {
                       </ul>
                     </div>
                   )}
+
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex text-sm font-medium text-neutral-900 hover:text-neutral-500 transition-colors"
+                    >
+                      View GitHub Repository ↗
+                    </a>
+                  )}
                 </div>
 
                 {/* Project link */}
-                <a
-                  href={project.href}
-                  target={
-                    project.href.startsWith("http") ? "_blank" : undefined
-                  }
-                  rel={
-                    project.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="self-start text-sm font-medium transition-transform hover:translate-x-1"
-                >
-                  {project.linkType} ↗
-                </a>
+                {project.href && project.linkType === "Case Study" && (
+                  <a
+                    href={project.href}
+                    className="self-start text-sm font-medium transition-transform hover:translate-x-1"
+                  >
+                    {project.linkType} ↗
+                  </a>
+                )}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
