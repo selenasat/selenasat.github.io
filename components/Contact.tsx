@@ -18,6 +18,7 @@ export default function Contact() {
     setStatus("success");
     event.currentTarget.reset();
   }
+
   return (
     <section
       id="contact"
@@ -62,7 +63,7 @@ export default function Contact() {
                 id="name"
                 name="name"
                 placeholder="Your name"
-                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0"
+                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
               />
             </div>
 
@@ -78,8 +79,8 @@ export default function Contact() {
                 type="email"
                 id="email"
                 name="email"
-                placeholder="you@example.com"
-                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0"
+                placeholder="your-email-here@example.com"
+                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 "
               />
             </div>
 
@@ -96,7 +97,7 @@ export default function Contact() {
                 name="message"
                 placeholder="Tell me about a project, collaboration, opportunity, or just say hello..."
                 rows={5}
-                className="mt-3 block w-full resize-none border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0"
+                className="mt-3 block w-full resize-none border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
               />
             </div>
 
@@ -111,6 +112,12 @@ export default function Contact() {
             {status === "success" && (
               <p className="text-sm text-neutral-600">
                 Thanks for reaching out!
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="text-sm text-red-600">
+                Something went wrong. Please try again or email me directly.
               </p>
             )}
           </form>
