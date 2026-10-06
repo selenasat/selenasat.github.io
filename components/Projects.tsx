@@ -281,7 +281,7 @@ export default function Projects() {
                         </div>
 
                         <div className="rounded-lg md:rounded-xl border border-neutral-200 p-2 sm:p-3 md:p-4">
-                          <p className="text-[10px] sm:text-xs leading-tight text-neutral-400">
+                          <p className="text-[9px] sm:text-xs leading-tight tracking-tight text-neutral-400">
                             Recommendations
                           </p>
 
@@ -319,8 +319,8 @@ export default function Projects() {
                       <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-3 md:gap-6 px-0 sm:px-2 md:px-4">
                         {/* S3 */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
-                            <span className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
+                            <span className="text-[9px] sm:text-xs">
                               S3
                             </span>
                           </div>
@@ -329,16 +329,16 @@ export default function Projects() {
                             Upload
                           </span>
                         </div>
-``
+
                         {/* Arrow */}
-                        <span className="text-neutral-300 text-lg md:text-xl">
+                        <span className="text-neutral-300 text-base sm:text-lg md:text-xl">
                           →
                         </span>
 
                         {/* Lambda */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
-                            <span className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
+                            <span className="text-[9px] sm:text-xs ">
                               Lambda
                             </span>
                           </div>
@@ -349,14 +349,14 @@ export default function Projects() {
                         </div>
 
                         {/* Arrow */}
-                        <span className="text-neutral-300 text-lg md:text-xl">
+                        <span className="text-neutral-300 text-base sm:text-lg md:text-xl">
                           →
                         </span>
 
                         {/* DynamoDB */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
-                            <span className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
+                            <span className="text-[9px] sm:text-xs ">
                               DynamoDB
                             </span>
                           </div>
@@ -367,14 +367,14 @@ export default function Projects() {
                         </div>
 
                         {/* Arrow */}
-                        <span className="text-neutral-300 text-lg md:text-xl">
+                        <span className="text-neutral-300 text-base sm:text-lg md:text-xl">
                           →
                         </span>
 
                         {/* SNS */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
-                            <span className="mt-1 sm:mt-2 text-[10px] sm:text-xs text-neutral-400">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl border border-neutral-200 flex items-center justify-center transition-transform duration-300 hover:-translate-y-1">
+                            <span className="text-[9px] sm:text-xs">
                               SNS
                             </span>
                           </div>
@@ -419,7 +419,7 @@ export default function Projects() {
                       <div className="flex flex-nowrap items-center justify-center gap-1 sm:gap-4">
                         {/* Push */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Push
                             </span>
@@ -434,7 +434,7 @@ export default function Projects() {
 
                         {/* Workflow */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Action
                             </span>
@@ -449,7 +449,7 @@ export default function Projects() {
 
                         {/* Lint */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Lint
                             </span>
@@ -464,7 +464,7 @@ export default function Projects() {
 
                         {/* Result */}
                         <div className="flex flex-col items-center">
-                          <div className="w-11 h-11 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
+                          <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 px-3 py-2 sm:px-4 sm:py-3 rounded-2xl border border-neutral-200 flex items-center justify-center">
                             <span className="text-xs md:text-sm font-medium">
                               Pass
                             </span>
