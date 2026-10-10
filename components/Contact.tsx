@@ -2,21 +2,41 @@
 
 import { FormEvent, useState } from "react";
 
+type Status = "idle" | "sending" | "success" | "error";
+
 export default function Contact() {
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
     setStatus("sending");
 
-    // Temporary placeholder until we connect the email service.
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          message: formData.get("message"),
+        }),
+      });
 
-    setStatus("success");
-    event.currentTarget.reset();
+      if (!response.ok) {
+        throw new Error("Message could not be sent.");
+      }
+
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -27,7 +47,7 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto">
         {/* Intro */}
         <div className="max-w-3xl">
-          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6 ">
+          <p className="uppercase tracking-[0.3em] text-sm text-neutral-500 mb-6">
             Contact
           </p>
 
@@ -57,13 +77,16 @@ export default function Contact() {
               >
                 Name
               </label>
-
               <input
                 type="text"
                 id="name"
                 name="name"
+                autoComplete="name"
                 placeholder="Your name"
-                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
+                maxLength={100}
+                required
+                disabled={status === "sending"}
+                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 disabled:opacity-50"
               />
             </div>
 
@@ -74,13 +97,16 @@ export default function Contact() {
               >
                 Email
               </label>
-
               <input
                 type="email"
                 id="email"
                 name="email"
-                placeholder="your-email-here@example.com"
-                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 "
+                autoComplete="email"
+                placeholder="your-email@example.com"
+                maxLength={254}
+                required
+                disabled={status === "sending"}
+                className="mt-3 block w-full border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 disabled:opacity-50"
               />
             </div>
 
@@ -91,13 +117,15 @@ export default function Contact() {
               >
                 Message
               </label>
-
               <textarea
                 id="message"
                 name="message"
                 placeholder="Tell me about a project, collaboration, opportunity, or just say hello..."
                 rows={5}
-                className="mt-3 block w-full resize-none border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
+                maxLength={5000}
+                required
+                disabled={status === "sending"}
+                className="mt-3 block w-full resize-none border-0 border-b border-neutral-300 bg-transparent px-0 py-3 text-neutral-900 placeholder:text-neutral-400 focus:border-neutral-900 focus:outline-none focus:ring-0 focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2 disabled:opacity-50"
               />
             </div>
 
@@ -109,17 +137,21 @@ export default function Contact() {
               {status === "sending" ? "Sending..." : "Send message ↗"}
             </button>
 
-            {status === "success" && (
-              <p className="text-sm text-neutral-600">
-                Thanks for reaching out!
-              </p>
-            )}
+            <div aria-live="polite" role="status">
+              {status === "success" && (
+                <p className="text-sm text-neutral-600">
+                  Thanks for reaching out! Your message was submitted
+                  successfully.
+                </p>
+              )}
 
-            {status === "error" && (
-              <p className="text-sm text-red-600">
-                Something went wrong. Please try again or email me directly.
-              </p>
-            )}
+              {status === "error" && (
+                <p className="text-sm text-red-600">
+                  We couldn&apos;t send your message. Please try again or email
+                  me directly at satselena.dev@gmail.com.
+                </p>
+              )}
+            </div>
           </form>
         </div>
 
